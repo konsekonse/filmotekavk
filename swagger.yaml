@@ -1,0 +1,40 @@
+swagger: "2.0"
+info:
+  title: "Filmoteca API"
+  description: "API for managing films and actors"
+  version: "1.0.0"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /addactor:
+    post:
+      summary: "Add an actor"
+      description: "Endpoint to add a new actor"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "actor"
+          in: "body"
+          description: "Actor object"
+          required: true
+          schema:
+            $ref: "#/definitions/Actor"
+      responses:
+        200:
+          description: "Actor added successfully"
+  # Другие эндпоинты аналогично
+definitions:
+  Actor:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      gender:
+        type: "string"
+      dateOfBirth:
+        type: "string"
+        format: "date"
+  # Определения других моделей аналогично
